@@ -14,7 +14,7 @@ async function getTrips(req, res) {
 async function createTrip(req, res) {
     try {
         const { title, description, price, location, duration, type } = req.body
-        const imagelink = req.file?.path;
+        const imageURL = req.file?.path;
 
         const trip = await Trip.create({
             title,
@@ -23,12 +23,12 @@ async function createTrip(req, res) {
             location,
             duration,
             type,
-            imageURL: imagelink
+            imageURL
         })
 
-        res.status(200).send(trip)
+        res.status(200).json(trip)
     } catch (error) {
-        
+        res.status(400).json({error: error.message})
     }
 }
 
