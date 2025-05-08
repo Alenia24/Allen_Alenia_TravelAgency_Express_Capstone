@@ -12,6 +12,6 @@ router.get("/", TripsController.getTrips)
 
 // Create a trip
 // upload.single allows only one image 
-router.post("/", upload.single("imageURL"), TripsController.createTrip)
+router.post("/", upload.single("image"), TripsController.createTrip)
 
 export default router
