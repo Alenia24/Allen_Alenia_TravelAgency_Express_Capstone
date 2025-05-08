@@ -13,17 +13,9 @@ async function getTrips(req, res) {
 // Create a trip
 async function createTrip(req, res) {
     try {
-        const { title, description, price, location, duration, type } = req.body
-        const imageURL = req.file?.path;
-
         const trip = await Trip.create({
-            title,
-            description,
-            price,
-            location,
-            duration,
-            type,
-            imageURL
+            ...req.body,
+            ...req.file?.path
         })
 
         res.status(200).json(trip)
@@ -35,7 +27,11 @@ async function createTrip(req, res) {
 // Update a trip
 async function updateTrip(req, res) {
     try {
-        const trip = await Trip.findByIdAndUpdate(req.params.id, req.body, req.file?.path)
+        const updatedTrip = {
+            ...req.body,
+            ...(req.file?.path)
+        }
+        const trip = await Trip.findByIdAndUpdate(req.params.id, req.body, updatedTrip)
 
         res.status(200).json(trip)
         
