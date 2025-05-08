@@ -1,5 +1,8 @@
 import express from "express";
+import multer from "multer"
+import { storage } from "../../config/cloudinary.mjs";
 const router = express.Router();
+const upload = multer({ storage })
 
 // Import the controller
 import * as TripsController from "../../controllers/trips/trips-controller.js"
@@ -8,6 +11,7 @@ import * as TripsController from "../../controllers/trips/trips-controller.js"
 router.get("/", TripsController.getTrips)
 
 // Create a trip
-router.post("/", TripsController.createTrip)
+// upload.single allows only one image 
+router.post("/", upload.single("imageURL"), TripsController.createTrip)
 
 export default router
