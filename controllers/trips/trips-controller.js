@@ -15,10 +15,10 @@ async function createTrip(req, res) {
     try {
         const trip = await Trip.create({
             ...req.body,
-            ...req.file?.path
+            imageURL: req.file?.path
         })
 
-        res.status(200).json(trip)
+        res.status(201).json(trip)
     } catch (error) {
         res.status(400).json({error: error.message})
     }
@@ -29,9 +29,17 @@ async function updateTrip(req, res) {
     try {
         const updatedTrip = {
             ...req.body,
-            ...(req.file?.path)
+            // Only spreads if the image is updated
+            ...(req.file?.path && { imageURL: req.file.path })
         }
-        const trip = await Trip.findByIdAndUpdate(req.params.id, req.body, updatedTrip)
+        const trip = await Trip.findByIdAndUpdate(req.params.id, updatedTrip,
+            //Return the update form, before there was a delay
+            { new: true}
+        )
+
+        if(!trip) {
+            res.json("No trip found")
+        }
 
         res.status(200).json(trip)
         
