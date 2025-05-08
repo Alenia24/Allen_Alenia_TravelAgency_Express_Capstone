@@ -1,7 +1,13 @@
 import express from "express";
+import { config } from "dotenv";
+config();
+
+// Import the database connection
+import "./database/database.js"
+
 const app = express();
 
-const port = 5050;
+const PORT = process.env.PORT || 5050;
 
 app.get("/", (req, res) => {
     res.send("Welcome to the Travel Agency API.")
@@ -13,6 +19,6 @@ app.use((req, res) => {
 })
 
 // App.listen
-app.listen(port, () => {
-    console.log(`Server running on port: ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running on port: ${PORT}`);
 })
