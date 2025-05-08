@@ -10,4 +10,26 @@ async function getTrips(req, res) {
     }
 }
 
-export { getTrips }
+// Create a trip
+async function createTrip(req, res) {
+    try {
+        const { title, description, price, location, duration, type } = req.body
+        const imagelink = req.file?.path;
+
+        const trip = await Trip.create({
+            title,
+            description,
+            price,
+            location,
+            duration,
+            type,
+            imageURL: imagelink
+        })
+
+        res.status(200).send(trip)
+    } catch (error) {
+        
+    }
+}
+
+export { getTrips, createTrip }
