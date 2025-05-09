@@ -18,7 +18,7 @@ async function getReviews(req, res) {
 // Get all reviews for a trip
 async function getTripReviews(req, res) {
     try {
-        const reviews = await Review.findById({trip: req.params.id})
+        const reviews = await Review.find({trip: req.params.tripId})
         
         if(!reviews || reviews.length ===0) {
             return res.status(200).json({ message: "Trip has No Reviews."})
