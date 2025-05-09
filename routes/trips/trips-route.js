@@ -20,4 +20,7 @@ router.post("/", upload.single("image"), TripsController.createTrip)
 // Update a trip
 router.put("/:id",upload.single("image"), TripsController.updateTrip)
 
+// Delete a trip
+router.delete("/:id", TripsController.deleteTrip)
+
 export default router
