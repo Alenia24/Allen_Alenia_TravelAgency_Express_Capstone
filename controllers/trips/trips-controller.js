@@ -62,11 +62,26 @@ async function getTrip(req, res) {
     if (!trip) {
       return res.status(404).json({ message: "Trip Not Found" });
     }
-    
+
     res.status(200).json(trip);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 }
 
-export { getTrips, createTrip, updateTrip, getTrip };
+// Delete a trip by id
+async function deleteTrip(req, res) {
+    try {
+        const trip = await Trip.findByIdAndDelete(req.params.id)
+
+        if (!trip) {
+          return res.status(404).json({ message: "Trip Not Found" });
+        }
+
+        res.status(200).json({ message: "Trip Deleted Successfully."})
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
+export { getTrips, createTrip, updateTrip, getTrip, deleteTrip };
