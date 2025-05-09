@@ -34,9 +34,12 @@ async function getTripReviews(req, res) {
 
 // Create a review for a trip by id
 async function createReview(req, res) {
+    const tripId = req.params.tripId
+
   try {
     const review = await Review.create({
       ...req.body,
+      trip: tripId
     });
     res.status(200).json(review);
   } catch (error) {
