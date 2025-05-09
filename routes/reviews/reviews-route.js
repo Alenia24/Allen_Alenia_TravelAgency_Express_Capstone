@@ -1,4 +1,9 @@
 import express from "express";
-const router = express.Router()
+const router = express.Router();
 
-export default router
+import * as ReviewsController from "../../controllers/reviews/reviews-controller.js";
+
+//Get all reviews
+router.get("/", ReviewsController.getReviews);
+
+export default router;
