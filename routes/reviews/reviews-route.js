@@ -9,4 +9,7 @@ router.get("/", ReviewsController.getReviews);
 // Get all reviews by trip
 router.get("/:tripId", ReviewsController.getTripReviews);
 
+// Create a review by tripId
+router.post("/tripId", ReviewsController.createReview);
+
 export default router;
