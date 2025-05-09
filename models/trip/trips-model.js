@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import validator from "validator"
 // Define Trip Schema
 const tripSchema = new mongoose.Schema(
   {
@@ -25,6 +25,11 @@ const tripSchema = new mongoose.Schema(
       required: true,
       trim: true,
       lowercase: true,
+    },
+    date: {
+      type: Date,
+      required: true,
+      validate: [date => date > new Date(), "Date Must be in the Future."]
     },
     duration: {
       type: Number,
