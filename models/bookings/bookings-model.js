@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import validator from "validator"
 
 const bookingSchema = new mongoose.Schema({
   trip: {
@@ -20,7 +21,8 @@ const bookingSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true, 
+    validate: [validator.isEmail, "Invalid Email Address"]
   },
   telephone: {
     type: String,
