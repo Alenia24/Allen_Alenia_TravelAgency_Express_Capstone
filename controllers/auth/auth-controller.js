@@ -70,4 +70,4 @@ async function loginUser(req, res) {
   }
 }
 
-export { createUser };
+export { createUser, loginUser };
