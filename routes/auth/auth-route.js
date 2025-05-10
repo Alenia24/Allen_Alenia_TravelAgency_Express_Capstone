@@ -7,4 +7,7 @@ import * as AuthController from "../../controllers/auth/auth-controller.js";
 // Create a user
 router.post("/register", AuthController.createUser);
 
+// Login a user
+router.post("/login", AuthController.loginUser)
+
 export default router;
