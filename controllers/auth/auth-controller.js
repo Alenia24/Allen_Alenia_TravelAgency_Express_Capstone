@@ -70,4 +70,12 @@ async function loginUser(req, res) {
   }
 }
 
-export { createUser, loginUser };
+// Logout a user
+async function logoutUser(req, res) {
+    // Remove the token from refreshTokens array
+    refreshTokens = refreshTokens.filter(token => token !== req.body.token)
+
+    res.status(200).json("Logged Out Successfully.")
+}
+
+export { createUser, loginUser, logoutUser };
