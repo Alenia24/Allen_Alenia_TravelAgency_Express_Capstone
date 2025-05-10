@@ -12,6 +12,7 @@ import "./database/database.js";
 import tripsRouter from "./routes/trips/trips-route.js";
 import bookingsRouter from "./routes/bookings/bookings-route.js";
 import reviewsRouter from "./routes/reviews/reviews-route.js";
+import authRouter from "./routes/auth/auth-route.js"
 
 // Enable to use req.body when forms are submitted
 app.use(express.urlencoded({ extended: true }));
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 app.use("/trips", tripsRouter);
 app.use("/bookings", bookingsRouter);
 app.use("/reviews", reviewsRouter);
+app.use("/auth", authRouter)
 
 //Error Handling Middleware
 app.use((req, res) => {
