@@ -1,5 +1,6 @@
 import express from "express";
 import { config } from "dotenv";
+import cors from "cors" 
 config();
 
 const app = express();
@@ -18,6 +19,8 @@ import authRouter from "./routes/auth/auth-route.js"
 app.use(express.urlencoded({ extended: true }));
 // Enable to use req.body without a form, eg. from reqbin, postman, etc
 app.use(express.json());
+
+app.use(cors())
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Travel Agency API.");
