@@ -64,7 +64,7 @@ async function loginUser(req, res) {
     refreshTokens.push(refreshToken)
 
     // Send the accessToken and refreshToken to the user
-    return res.json({ message: "Logged in successfully.", accessToken: accessToken, refreshToken })
+    return res.json({ message: "Logged in successfully.", accessToken: accessToken, refreshToken , role:user.role })
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
