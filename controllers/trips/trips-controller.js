@@ -33,7 +33,8 @@ async function createTrip(req, res) {
 
     res.status(201).json(trip);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error)
+    res.status(500).json({ message: error.message });
   }
 }
 
