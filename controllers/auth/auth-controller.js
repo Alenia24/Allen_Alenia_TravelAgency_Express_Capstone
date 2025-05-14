@@ -25,7 +25,7 @@ async function createUser(req, res) {
       role: req.body.role,
     });
 
-    res.status(201).json("Registered Successfully.");
+    res.status(201).json({message: "Registered Successfully."});
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
