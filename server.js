@@ -1,6 +1,6 @@
 import express from "express";
 import { config } from "dotenv";
-import cors from "cors" 
+import cors from "cors";
 config();
 
 const app = express();
@@ -13,14 +13,19 @@ import "./database/database.js";
 import tripsRouter from "./routes/trips/trips-route.js";
 import bookingsRouter from "./routes/bookings/bookings-route.js";
 import reviewsRouter from "./routes/reviews/reviews-route.js";
-import authRouter from "./routes/auth/auth-route.js"
+import authRouter from "./routes/auth/auth-route.js";
 
 // Enable to use req.body when forms are submitted
 app.use(express.urlencoded({ extended: true }));
 // Enable to use req.body without a form, eg. from reqbin, postman, etc
 app.use(express.json());
 
-app.use(cors())
+app.use(
+  cors({
+    origin: "https://solaraescapes.onrender.com",
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Travel Agency API.");
@@ -30,7 +35,7 @@ app.get("/", (req, res) => {
 app.use("/trips", tripsRouter);
 app.use("/bookings", bookingsRouter);
 app.use("/reviews", reviewsRouter);
-app.use("/auth", authRouter)
+app.use("/auth", authRouter);
 
 //Error Handling Middleware
 app.use((req, res) => {
