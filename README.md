@@ -1,5 +1,5 @@
 # Solara's Escapes Express Application 
-A full stack travel agency web application, that allows users to browse and book trips, leave reviews. Admin can manage create and mane trips
+A full stack travel agency web application, that allows users to browse and book trips, leave reviews. Admin can manage trips by creating, editing and deleting trips.
 
 ## Technologies
 - JavaScript
