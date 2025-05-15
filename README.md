@@ -107,6 +107,7 @@ nodemon server.js
  - key = authorization
  - value = Bearer acess token given at login
 3. Under body use form data
+4. Key for creating, and editing trip imageURL must be image 
 
 
 # Usage
