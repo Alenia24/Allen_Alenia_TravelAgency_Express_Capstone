@@ -1,0 +1,92 @@
+# Solara's Escapes Express Application 
+A full stack travel agency web application, that allows users to browse and book trips, leave reviews. Admin can manage create and mane trips
+
+## Technologies
+- JavaScript
+- Express
+- Mongoose
+- MongoDB
+
+## User Roles
+### Users:
+- Users can register.
+- Users can login.
+- Users can browse all trips.
+- Users can view details of a single trip.
+- Users can book a trip.
+- Users can view reviews for trips.
+
+### Admins:
+- Admins can register.
+- Admins can login.
+- Admins can create trips.
+- Admins can edit trips.
+- Admins can delete trips.
+
+ ## Authentication
+Authentication is handled by bycrypt and JWT.<br>
+Routes are protected based on user roles.
+
+## Trip Images Upload
+Multer and Multer Storage Cloudinary handle image processing.
+Images are uploaded and managed with Cloudinary.
+
+# How to get environemt variables
+### 1. MongoDD
+1. Log in or sign up for [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database) account.
+2. Create a cluster
+3. Under Connect, copy your connection string
+
+### 2. Cloudinary
+1. Log in or sign up for [Cloudinary](https://cloudinary.com/) account.
+2. Go to dashboard and copy:
+   - Cloud name
+   - API Key
+   - API Secret
+     
+### 3. JWT Secret Keys
+Gnerate JWT secret keys in the terminal (Execute twice to get to keys for access token and refresh token then copy and paste respectfully into .env file)
+``` bash
+require('crypto').randomBytes(64).toString('hex')
+```
+
+# Installation
+
+## 1. Clone the repository
+``` bash
+git clone https://github.com/Alenia24/Allen_Alenia_TravelAgency_Express_Capstone.git
+cd Allen_Alenia_TravelAgency_Express_Capstone
+npm i
+```
+
+## 2. Create a .env file to store environment variables
+``` bash
+MONGO_URL=your_mongodb_connection_string
+
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+ACCESS_TOKEN_SECRET=your_jwt_access_key
+REFRESH_TOKEN_SECRET=your_jwt_refresh_key
+```
+## 3. Run the application
+``` bash
+nodemon server.js
+```
+
+Designed to be paired with [solara's escape frontend](https://github.com/Alenia24/Allen_Alenia_TravelAgency_React_Capstone)<br>
+Express sever live [link](https://solaraescapebackend.onrender.com)
+
+# Contact
+[Linkedln](https://www.linkedin.com/in/aleniaallen/)
+
+
+
+
+
+  
+  
+
+
+  
