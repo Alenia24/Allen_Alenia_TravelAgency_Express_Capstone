@@ -74,7 +74,42 @@ REFRESH_TOKEN_SECRET=your_jwt_refresh_key
 ``` bash
 nodemon server.js
 ```
+# API Endpoints
+## Trips
+| Method        | Endpoint       |    Description             |
+| ------------- |:--------------:| --------------------------:|
+| GET           | /trips         | 	  Get all trips           |
+| GET           | /trips/:id     | 	  Get a single trip by id |
+| POST          | /trips         |  	 Create a new trip       |
+| PUT           | /trips/:id     |    Update a trip           |
+| DELETE        | /trips/:id     |    Delete a trip           |
 
+## Bookings
+| Method        | Endpoint       |    Description                     |
+| ------------- |:--------------:| ----------------------------------:|
+| POST          | /bookings/:id  |  	 Create a new booking for a trip |
+
+## Reviews
+| Method        | Endpoint       |    Description                     |
+| ------------- |:--------------:| ----------------------------------:|
+| POST          | /reviews/:id   |  	 Create a new review for a trip  |
+
+## Authorization
+| Method        | Endpoint       |    Description                     |
+| ------------- |:--------------:| ----------------------------------:|
+| POST          | /auth/register |  	 Register a user                 |
+| POST          | /auth/login    |  	 Login a user                    |
+| POST          | /auth/logout   |  	 Logout a user                   |
+
+## Key Notes for admin use for creating, editing, and deleting trips
+1. When logging in copy access token return
+2. Under headers,
+ - key = authorization
+ - value = Bearer acess token given at login
+3. Under body use form data
+
+
+# Usage
 Designed to be paired with [solara's escape frontend](https://github.com/Alenia24/Allen_Alenia_TravelAgency_React_Capstone)<br>
 Express sever live [link](https://solaraescapebackend.onrender.com)
 
