@@ -151,6 +151,9 @@ Before developing this application I had no prior experience with authentication
 I learned that:
 - bcrypt is used to hash passwords so they are not stored directly in the database as plain text.
 
+# Planning 
+[Google Docs](https://docs.google.com/document/d/1I8a85ssg-QtsPQcI9IbdvO7btaI4nObDcGcTDawk24w/edit?tab=t.0)
+
 
 
 
